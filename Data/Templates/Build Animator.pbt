@@ -30,7 +30,7 @@ Assets {
           }
           Overrides {
             Name: "cs:Speed"
-            Float: 30
+            Float: 12
           }
           Overrides {
             Name: "cs:StartScale"
@@ -42,7 +42,7 @@ Assets {
           }
           Overrides {
             Name: "cs:TweenSpeed"
-            Float: 0.2
+            Float: 0.3
           }
           Overrides {
             Name: "cs:Easing"
@@ -59,10 +59,6 @@ Assets {
             ObjectReference {
               SubObjectId: 13577182538575678219
             }
-          }
-          Overrides {
-            Name: "cs:RotateSpeed"
-            Float: 30
           }
           Overrides {
             Name: "cs:RotateAroundObject"
@@ -82,11 +78,11 @@ Assets {
           }
           Overrides {
             Name: "cs:ShotOutSpeed"
-            Float: 5
+            Float: 4
           }
           Overrides {
             Name: "cs:ShotHoldDuration"
-            Float: 3
+            Float: 5
           }
           Overrides {
             Name: "cs:EnableFinalShot"
@@ -94,6 +90,14 @@ Assets {
           }
           Overrides {
             Name: "cs:HidePlayer"
+            Bool: true
+          }
+          Overrides {
+            Name: "cs:ShowCredit"
+            Bool: true
+          }
+          Overrides {
+            Name: "cs:ShowStats"
             Bool: true
           }
           Overrides {
@@ -150,14 +154,6 @@ Assets {
           }
           Overrides {
             Name: "cs:RotateAroundObject:ml"
-            Bool: false
-          }
-          Overrides {
-            Name: "cs:RotateSpeed:isrep"
-            Bool: false
-          }
-          Overrides {
-            Name: "cs:RotateSpeed:ml"
             Bool: false
           }
           Overrides {
@@ -230,14 +226,6 @@ Assets {
           }
           Overrides {
             Name: "cs:RotateAroundObject:subcategory"
-            String: "CameraRotator"
-          }
-          Overrides {
-            Name: "cs:RotateSpeed:category"
-            String: "Custom"
-          }
-          Overrides {
-            Name: "cs:RotateSpeed:subcategory"
             String: "CameraRotator"
           }
           Overrides {
@@ -329,10 +317,6 @@ Assets {
             String: "The target to look at when rotating around the object."
           }
           Overrides {
-            Name: "cs:RotateSpeed:tooltip"
-            String: "The rotation speed when rotating around the object."
-          }
-          Overrides {
             Name: "cs:RotateAroundObject:tooltip"
             String: "Toggle if rotating around the object is on or off."
           }
@@ -363,6 +347,22 @@ Assets {
           Overrides {
             Name: "cs:EnableFinalShot:subcategory"
             String: "FinalShot"
+          }
+          Overrides {
+            Name: "cs:ShowStats:category"
+            String: "Custom"
+          }
+          Overrides {
+            Name: "cs:ShowStats:subcategory"
+            String: "Misc"
+          }
+          Overrides {
+            Name: "cs:ShowCredit:category"
+            String: "Custom"
+          }
+          Overrides {
+            Name: "cs:ShowCredit:subcategory"
+            String: "Misc"
           }
         }
         Collidable_v2 {
@@ -478,6 +478,7 @@ Assets {
         ChildIds: 3875969251930745526
         ChildIds: 13577182538575678219
         ChildIds: 14166983760187035383
+        ChildIds: 18007439230894276022
         Collidable_v2 {
           Value: "mc:ecollisionsetting:forceoff"
         }
@@ -545,13 +546,12 @@ Assets {
         Name: "Camera Start"
         Transform {
           Location {
-            X: -391.404297
-            Y: -2247.0376
-            Z: 523.027283
+            X: -2626.20239
+            Y: -0.988242865
+            Z: 472.246826
           }
           Rotation {
-            Pitch: -18.0205078
-            Yaw: 90.5232773
+            Pitch: -9.17675781
           }
           Scale {
             X: 1
@@ -601,14 +601,12 @@ Assets {
         Name: "Camera End"
         Transform {
           Location {
-            X: -391.404297
-            Y: -4250
-            Z: 1500
+            X: -5131.97656
+            Y: -0.98828125
+            Z: 1223.2345
           }
           Rotation {
-            Pitch: -12.5022583
-            Yaw: 90.5095
-            Roll: 0.0514426418
+            Pitch: -9.17675781
           }
           Scale {
             X: 1
@@ -696,12 +694,12 @@ Assets {
         Name: "Camera Rotator"
         Transform {
           Location {
-            Y: -3869.94409
-            Z: 1240.67566
+            X: -5227.8042
+            Z: 1422.58521
           }
           Rotation {
-            Pitch: -25.036438
-            Yaw: 90.6502838
+            Pitch: -20.388
+            Yaw: -0.604675293
           }
           Scale {
             X: 1
@@ -768,6 +766,18 @@ Assets {
               Id: 5010859578220487614
             }
           }
+          Overrides {
+            Name: "cs:Stats"
+            ObjectReference {
+              SubObjectId: 5016043025235935299
+            }
+          }
+          Overrides {
+            Name: "cs:Name"
+            ObjectReference {
+              SubObjectId: 7613507988376443600
+            }
+          }
         }
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
@@ -788,6 +798,367 @@ Assets {
         }
         NetworkRelevanceDistance {
           Value: "mc:eproxyrelevance:critical"
+        }
+        IsReplicationEnabledByDefault: true
+      }
+      Objects {
+        Id: 18007439230894276022
+        Name: "UI Container"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 9427477958954229541
+        ChildIds: 10407549706807335829
+        ChildIds: 17483173546010954616
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Control {
+          RenderTransformPivot {
+            Anchor {
+              Value: "mc:euianchor:middlecenter"
+            }
+          }
+          Canvas {
+            ContentType {
+              Value: "mc:ecanvascontenttype:dynamic"
+            }
+            Opacity: 1
+            IsHUD: true
+            CanvasWorldSize {
+              X: 1024
+              Y: 1024
+            }
+            RedrawTime: 30
+            UseSafeZoneAdjustment: true
+          }
+          AnchorLayout {
+            SelfAnchor {
+              Anchor {
+                Value: "mc:euianchor:topleft"
+              }
+            }
+            TargetAnchor {
+              Anchor {
+                Value: "mc:euianchor:topleft"
+              }
+            }
+          }
+        }
+        IsReplicationEnabledByDefault: true
+      }
+      Objects {
+        Id: 10407549706807335829
+        Name: "Stats Background"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 18007439230894276022
+        ChildIds: 5016043025235935299
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:forceoff"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Control {
+          Width: 2000
+          Height: 70
+          UIX: -1300
+          UIY: -25
+          RenderTransformPivot {
+            Anchor {
+              Value: "mc:euianchor:middlecenter"
+            }
+          }
+          Image {
+            Brush {
+              Id: 16573738908085991489
+            }
+            Color {
+              G: 0.0242858138
+              B: 0.0900001526
+              A: 1
+            }
+            TeamSettings {
+            }
+            ShadowColor {
+              A: 1
+            }
+            ShadowOffset {
+            }
+            ScreenshotIndex: 1
+          }
+          AnchorLayout {
+            SelfAnchor {
+              Anchor {
+                Value: "mc:euianchor:bottomleft"
+              }
+            }
+            TargetAnchor {
+              Anchor {
+                Value: "mc:euianchor:bottomleft"
+              }
+            }
+          }
+        }
+        IsReplicationEnabledByDefault: true
+      }
+      Objects {
+        Id: 5016043025235935299
+        Name: "Stats"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 10407549706807335829
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Control {
+          Width: 664
+          Height: 60
+          UIY: 1
+          RenderTransformPivot {
+            Anchor {
+              Value: "mc:euianchor:middlecenter"
+            }
+          }
+          UseParentHeight: true
+          Text {
+            Color {
+              R: 1
+              G: 1
+              A: 1
+            }
+            Size: 18
+            Justification {
+              Value: "mc:etextjustify:left"
+            }
+            Font {
+              Id: 10612237416230999039
+            }
+            VerticalJustification {
+              Value: "mc:everticaljustification:center"
+            }
+            ShadowColor {
+              A: 1
+            }
+            ShadowOffset {
+            }
+            OutlineColor {
+              A: 1
+            }
+            OutlineSize: 3
+          }
+          AnchorLayout {
+            SelfAnchor {
+              Anchor {
+                Value: "mc:euianchor:middleright"
+              }
+            }
+            TargetAnchor {
+              Anchor {
+                Value: "mc:euianchor:middleright"
+              }
+            }
+          }
+        }
+        IsReplicationEnabledByDefault: true
+      }
+      Objects {
+        Id: 17483173546010954616
+        Name: "Name Background"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 18007439230894276022
+        ChildIds: 7613507988376443600
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:forceoff"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Control {
+          Width: 2000
+          Height: 70
+          UIX: 1300
+          UIY: -25
+          RenderTransformPivot {
+            Anchor {
+              Value: "mc:euianchor:middlecenter"
+            }
+          }
+          Image {
+            Brush {
+              Id: 16573738908085991489
+            }
+            Color {
+              G: 0.0242858138
+              B: 0.0900001526
+              A: 1
+            }
+            TeamSettings {
+            }
+            ShadowColor {
+              A: 1
+            }
+            ShadowOffset {
+            }
+            ScreenshotIndex: 1
+          }
+          AnchorLayout {
+            SelfAnchor {
+              Anchor {
+                Value: "mc:euianchor:bottomright"
+              }
+            }
+            TargetAnchor {
+              Anchor {
+                Value: "mc:euianchor:bottomright"
+              }
+            }
+          }
+        }
+        IsReplicationEnabledByDefault: true
+      }
+      Objects {
+        Id: 7613507988376443600
+        Name: "Name"
+        Transform {
+          Location {
+          }
+          Rotation {
+          }
+          Scale {
+            X: 1
+            Y: 1
+            Z: 1
+          }
+        }
+        ParentId: 17483173546010954616
+        Collidable_v2 {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        Visible_v2 {
+          Value: "mc:evisibilitysetting:inheritfromparent"
+        }
+        CameraCollidable {
+          Value: "mc:ecollisionsetting:inheritfromparent"
+        }
+        EditorIndicatorVisibility {
+          Value: "mc:eindicatorvisibility:visiblewhenselected"
+        }
+        Control {
+          Width: 664
+          Height: 60
+          UIY: 1
+          RenderTransformPivot {
+            Anchor {
+              Value: "mc:euianchor:middlecenter"
+            }
+          }
+          UseParentHeight: true
+          Text {
+            Color {
+              R: 1
+              G: 1
+              A: 1
+            }
+            Size: 18
+            Justification {
+              Value: "mc:etextjustify:right"
+            }
+            Font {
+              Id: 10612237416230999039
+            }
+            VerticalJustification {
+              Value: "mc:everticaljustification:center"
+            }
+            ShadowColor {
+              A: 1
+            }
+            ShadowOffset {
+            }
+            OutlineColor {
+              A: 1
+            }
+            OutlineSize: 3
+          }
+          AnchorLayout {
+            SelfAnchor {
+              Anchor {
+                Value: "mc:euianchor:middleleft"
+              }
+            }
+            TargetAnchor {
+              Anchor {
+                Value: "mc:euianchor:middleleft"
+              }
+            }
+          }
         }
         IsReplicationEnabledByDefault: true
       }
@@ -907,15 +1278,15 @@ Assets {
       }
       Objects {
         Id: 3115690939800672672
-        Name: "Craftsman House 01"
+        Name: "Core Content: Craftsman House 01"
         Transform {
           Location {
-            X: 50
-            Y: -1050
-            Z: 144.761108
+            X: -1519.73584
+            Y: -407.774414
+            Z: 200
           }
           Rotation {
-            Yaw: 180
+            Yaw: 90
           }
           Scale {
             X: 1
@@ -944,7 +1315,7 @@ Assets {
         }
         Folder {
           IsFilePartition: true
-          FilePartitionName: "Craftsman House 01"
+          FilePartitionName: "Manticore Inc - Craftsman House 01"
         }
         InstanceHistory {
           SelfId: 16126359255170965123
@@ -40984,6 +41355,24 @@ Assets {
       PrimaryAsset {
         AssetType: "BlueprintAssetRef"
         AssetId: "fxbp_dummy_pivot"
+      }
+    }
+    Assets {
+      Id: 16573738908085991489
+      Name: "UI Gradient Rectangular 001"
+      PlatformAssetType: 9
+      PrimaryAsset {
+        AssetType: "PlatformBrushAssetRef"
+        AssetId: "UI_Basic_Shape_002"
+      }
+    }
+    Assets {
+      Id: 10612237416230999039
+      Name: "Orbitron Bold"
+      PlatformAssetType: 28
+      PrimaryAsset {
+        AssetType: "FontAssetRef"
+        AssetId: "OrbitronBold_ref"
       }
     }
     Assets {

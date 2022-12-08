@@ -89,13 +89,19 @@ Objects {
     Rotation {
     }
     Scale {
-      X: 50
-      Y: 50
-      Z: 1
+      X: 8.27851582
+      Y: 8.27851582
+      Z: 0.165570319
     }
   }
   ParentId: 4781671109827199097
   UnregisteredParameters {
+    Overrides {
+      Name: "ma:Shared_BaseMaterial:id"
+      AssetReference {
+        Id: 17648425719505717173
+      }
+    }
   }
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
@@ -108,7 +114,7 @@ Objects {
   }
   CoreMesh {
     MeshAsset {
-      Id: 12095835209017042614
+      Id: 3995516285467608436
     }
     Teams {
       IsTeamCollisionEnabled: true

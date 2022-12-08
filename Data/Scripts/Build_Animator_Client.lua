@@ -10,17 +10,22 @@ local EASING = ROOT:GetCustomProperty("Easing")
 local START_Z = ROOT:GetCustomProperty("StartZ")
 local START_SCALE = ROOT:GetCustomProperty("StartScale")
 local ROTATE_AROUND_OBJECT = ROOT:GetCustomProperty("RotateAroundObject")
-local ROTATE_SPEED = ROOT:GetCustomProperty("RotateSpeed")
 local CAMERA_ROTATOR = ROOT:GetCustomProperty("CameraRotator"):WaitForObject()
 local LOOK_AT_TARGET = ROOT:GetCustomProperty("LookAtTarget"):WaitForObject()
 local HIDE_PLAYER = ROOT:GetCustomProperty("HidePlayer")
 local WAIT_DURATION = ROOT:GetCustomProperty("WaitDuration")
 local ENABLE_FINAL_SHOT = ROOT:GetCustomProperty("EnableFinalShot")
 
+local SHOW_CREDIT = ROOT:GetCustomProperty("ShowCredit")
+local SHOW_STATS = ROOT:GetCustomProperty("ShowStats")
+
 local CAMERA_START = ROOT:GetCustomProperty("CameraStart"):WaitForObject()
 local CAMERA_END = ROOT:GetCustomProperty("CameraEnd"):WaitForObject()
 local SHOT_OUT_SPEED = ROOT:GetCustomProperty("ShotOutSpeed")
 local SHOT_HOLD_DURATION = ROOT:GetCustomProperty("ShotHoldDuration")
+
+local STATS = script:GetCustomProperty("Stats"):WaitForObject()
+local NAME = script:GetCustomProperty("Name"):WaitForObject()
 
 local LOCAL_PLAYER = Game.GetLocalPlayer()
 
@@ -29,6 +34,8 @@ local tweens = {}
 local objs = {}
 local out_tween = nil
 local is_building = false
+local total_time = 0
+local rotate_tween = nil
 
 local pivot_orig_rot = CAMERA_ROTATOR.parent:GetWorldRotation()
 local camera_start_orig_pos = CAMERA_START:GetWorldPosition()
@@ -36,13 +43,20 @@ local camera_start_orig_rot = CAMERA_START:GetWorldRotation()
 
 local function setup()
 	objs = {}
+	total_time = 0
+
+	NAME.text = OBJECT:GetChildren()[1].name
 
 	for index, child in ipairs(meshes) do
 		objs[#objs + 1] = { child = child, position = child:GetPosition(), scale = child:GetScale(), rotation = child:GetRotation() }
 
 		child:SetScale(Vector3.New(START_SCALE))
 		child:SetPosition(child:GetPosition() + (Vector3.New(0, 0, START_Z)))
+
+		total_time = (index / SPEED)
 	end
+
+	print("Build Time: ", total_time)
 end
 
 local function reset()
@@ -135,6 +149,8 @@ local function scale_move_in()
 		tween:on_complete(function()
 			Tween.remove(tweens, tween)
 
+			STATS.text = "Mesh Count: " .. tostring(index)
+
 			if(index == total) then
 				if(ROTATE_AROUND_OBJECT and CAMERA_ROTATOR ~= nil) then
 					Task.Wait(WAIT_DURATION)
@@ -162,10 +178,22 @@ function Tick(dt)
 	if(out_tween ~= nil) then
 		out_tween:tween(dt)
 	end
+
+	if(rotate_tween ~= nil) then
+		rotate_tween:tween(dt)
+	end
 end
 
 Input.actionPressedEvent:Connect(function(player, action)
 	if(action == "Build" and not is_building) then
+		if(SHOW_CREDIT) then
+			NAME.parent.visibility = Visibility.FORCE_ON
+		end
+		
+		if(SHOW_STATS) then
+			STATS.parent.visibility = Visibility.FORCE_ON
+		end
+		
 		is_building = true
 		setup()
 		
@@ -176,7 +204,15 @@ Input.actionPressedEvent:Connect(function(player, action)
 		if(ROTATE_AROUND_OBJECT and CAMERA_ROTATOR ~= nil) then
 			LOCAL_PLAYER:SetOverrideCamera(CAMERA_ROTATOR, 0)
 			CAMERA_ROTATOR:LookAtContinuous(LOOK_AT_TARGET or OBJECT)
-			CAMERA_ROTATOR.parent:RotateContinuous(Rotation.New(0, 0, ROTATE_SPEED))
+			
+			rotate_tween = Tween:new(total_time, { z = pivot_orig_rot.z }, { z = 360 - pivot_orig_rot.z })
+			rotate_tween:on_change(function(c)
+				CAMERA_ROTATOR.parent:SetRotation(Rotation.New(0, 0, c.z))
+			end)
+
+			rotate_tween:on_complete(function()
+				rotate_tween = nil
+			end)
 		else
 			animate_out()
 		end
