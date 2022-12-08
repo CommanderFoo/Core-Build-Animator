@@ -18,7 +18,7 @@ Objects {
   ChildIds: 16813558807825262224
   ChildIds: 10005074784157121906
   ChildIds: 14982843161775482339
-  ChildIds: 4554814373906905421
+  ChildIds: 10174911799023347409
   UnregisteredParameters {
   }
   Collidable_v2 {
@@ -38,9 +38,13 @@ Objects {
   IsReplicationEnabledByDefault: true
 }
 Objects {
-  Id: 4554814373906905421
+  Id: 10174911799023347409
   Name: "Build Animator"
   Transform {
+    Location {
+    }
+    Rotation {
+    }
     Scale {
       X: 1
       Y: 1
@@ -48,36 +52,377 @@ Objects {
     }
   }
   ParentId: 4781671109827199097
+  UnregisteredParameters {
+    Overrides {
+      Name: "cs:Object"
+      ObjectReference {
+        SelfId: 10628752618368924230
+      }
+    }
+    Overrides {
+      Name: "cs:Speed"
+      Float: 12
+    }
+    Overrides {
+      Name: "cs:StartScale"
+      Float: 0.0001
+    }
+    Overrides {
+      Name: "cs:StartZ"
+      Float: -1000
+    }
+    Overrides {
+      Name: "cs:TweenSpeed"
+      Float: 0.3
+    }
+    Overrides {
+      Name: "cs:Easing"
+      String: "Out_Back"
+    }
+    Overrides {
+      Name: "cs:CameraRotator"
+      ObjectReference {
+        SelfId: 17966141767582254715
+      }
+    }
+    Overrides {
+      Name: "cs:LookAtTarget"
+      ObjectReference {
+        SelfId: 15779397963388123265
+      }
+    }
+    Overrides {
+      Name: "cs:RotateAroundObject"
+      Bool: true
+    }
+    Overrides {
+      Name: "cs:CameraStart"
+      ObjectReference {
+        SelfId: 9396957674665977765
+      }
+    }
+    Overrides {
+      Name: "cs:CameraEnd"
+      ObjectReference {
+        SelfId: 14673469309420685546
+      }
+    }
+    Overrides {
+      Name: "cs:ShotOutSpeed"
+      Float: 4
+    }
+    Overrides {
+      Name: "cs:ShotHoldDuration"
+      Float: 5
+    }
+    Overrides {
+      Name: "cs:EnableFinalShot"
+      Bool: true
+    }
+    Overrides {
+      Name: "cs:HidePlayer"
+      Bool: true
+    }
+    Overrides {
+      Name: "cs:ShowCredit"
+      Bool: true
+    }
+    Overrides {
+      Name: "cs:ShowStats"
+      Bool: true
+    }
+    Overrides {
+      Name: "cs:Object:isrep"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:Object:ml"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:Speed:isrep"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:Speed:ml"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:TweenSpeed:isrep"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:TweenSpeed:ml"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:Easing:isrep"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:Easing:ml"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:StartZ:isrep"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:StartZ:ml"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:StartScale:isrep"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:StartScale:ml"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:RotateAroundObject:isrep"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:RotateAroundObject:ml"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:CameraRotator:isrep"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:CameraRotator:ml"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:LookAtTarget:isrep"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:LookAtTarget:ml"
+      Bool: false
+    }
+    Overrides {
+      Name: "cs:Object:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:Object:subcategory"
+      String: "Object"
+    }
+    Overrides {
+      Name: "cs:Speed:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:Speed:subcategory"
+      String: "Object"
+    }
+    Overrides {
+      Name: "cs:TweenSpeed:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:TweenSpeed:subcategory"
+      String: "Object"
+    }
+    Overrides {
+      Name: "cs:Easing:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:Easing:subcategory"
+      String: "Object"
+    }
+    Overrides {
+      Name: "cs:StartZ:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:StartZ:subcategory"
+      String: "Object"
+    }
+    Overrides {
+      Name: "cs:StartScale:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:StartScale:subcategory"
+      String: "Object"
+    }
+    Overrides {
+      Name: "cs:RotateAroundObject:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:RotateAroundObject:subcategory"
+      String: "CameraRotator"
+    }
+    Overrides {
+      Name: "cs:CameraRotator:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:CameraRotator:subcategory"
+      String: "CameraRotator"
+    }
+    Overrides {
+      Name: "cs:CameraStart:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:CameraStart:subcategory"
+      String: "FinalShot"
+    }
+    Overrides {
+      Name: "cs:CameraEnd:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:CameraEnd:subcategory"
+      String: "FinalShot"
+    }
+    Overrides {
+      Name: "cs:ShotOutSpeed:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:ShotOutSpeed:subcategory"
+      String: "FinalShot"
+    }
+    Overrides {
+      Name: "cs:ShotHoldDuration:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:ShotHoldDuration:subcategory"
+      String: "FinalShot"
+    }
+    Overrides {
+      Name: "cs:LookAtTarget:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:LookAtTarget:subcategory"
+      String: "CameraRotator"
+    }
+    Overrides {
+      Name: "cs:HidePlayer:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:HidePlayer:subcategory"
+      String: "Misc"
+    }
+    Overrides {
+      Name: "cs:Object:tooltip"
+      String: "The object that will be animated built up. Make sure the object is in a client context."
+    }
+    Overrides {
+      Name: "cs:Speed:tooltip"
+      String: "The speed of the build."
+    }
+    Overrides {
+      Name: "cs:StartScale:tooltip"
+      String: "The scale of the object before tweening in."
+    }
+    Overrides {
+      Name: "cs:StartZ:tooltip"
+      String: "To add some movement when the object is tweened in, set the start Z position."
+    }
+    Overrides {
+      Name: "cs:TweenSpeed:tooltip"
+      String: "The speed of the tween for each object piece."
+    }
+    Overrides {
+      Name: "cs:Easing:tooltip"
+      String: "The easing equation to use. See the Tween_Easings script, there is a list at the end."
+    }
+    Overrides {
+      Name: "cs:CameraRotator:tooltip"
+      String: "The camera to use for rotating around the object."
+    }
+    Overrides {
+      Name: "cs:LookAtTarget:tooltip"
+      String: "The target to look at when rotating around the object."
+    }
+    Overrides {
+      Name: "cs:RotateAroundObject:tooltip"
+      String: "Toggle if rotating around the object is on or off."
+    }
+    Overrides {
+      Name: "cs:CameraStart:tooltip"
+      String: "The camera start for the final shot."
+    }
+    Overrides {
+      Name: "cs:CameraEnd:tooltip"
+      String: "The ending camera for the final shot."
+    }
+    Overrides {
+      Name: "cs:ShotOutSpeed:tooltip"
+      String: "The speed between the transition of the start and end cameras."
+    }
+    Overrides {
+      Name: "cs:ShotHoldDuration:tooltip"
+      String: "How long to hold the shot at the end of the transition."
+    }
+    Overrides {
+      Name: "cs:HidePlayer:tooltip"
+      String: "Enable to hide the player while the build animation is being played."
+    }
+    Overrides {
+      Name: "cs:EnableFinalShot:tooltip"
+      String: "If enabled, the final shot will be played."
+    }
+    Overrides {
+      Name: "cs:EnableFinalShot:subcategory"
+      String: "FinalShot"
+    }
+    Overrides {
+      Name: "cs:ShowStats:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:ShowStats:subcategory"
+      String: "Misc"
+    }
+    Overrides {
+      Name: "cs:ShowCredit:category"
+      String: "Custom"
+    }
+    Overrides {
+      Name: "cs:ShowCredit:subcategory"
+      String: "Misc"
+    }
+  }
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
   Visible_v2 {
     Value: "mc:evisibilitysetting:inheritfromparent"
   }
-  TemplateInstance {
-    ParameterOverrideMap {
-      key: 16979965954740082011
-      value {
-        Overrides {
-          Name: "Name"
-          String: "Build Animator"
-        }
-        Overrides {
-          Name: "Position"
-          Vector {
-          }
-        }
-        Overrides {
-          Name: "Rotation"
-          Rotator {
-          }
-        }
-      }
-    }
-    TemplateAsset {
-      Id: 14583684993468570256
-    }
+  CameraCollidable {
+    Value: "mc:ecollisionsetting:inheritfromparent"
   }
+  EditorIndicatorVisibility {
+    Value: "mc:eindicatorvisibility:visiblewhenselected"
+  }
+  Folder {
+    IsFilePartition: true
+    FilePartitionName: "Build Animator"
+  }
+  InstanceHistory {
+    SelfId: 10174911799023347409
+    SubobjectId: 16979965954740082011
+    InstanceId: 4554814373906905421
+    TemplateId: 14583684993468570256
+    WasRoot: true
+  }
+  NetworkRelevanceDistance {
+    Value: "mc:eproxyrelevance:critical"
+  }
+  IsReplicationEnabledByDefault: true
 }
 Objects {
   Id: 14982843161775482339
